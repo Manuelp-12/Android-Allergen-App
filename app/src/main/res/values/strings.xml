@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Food5</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="food_list">
+        <item>Egg</item>
+        <item>Peanuts</item>
+        <item>Fish</item>
+        <item>Gluten</item>
+        <item>Tree Nuts</item>
+        <item>Milk</item>
+        <item>Soy</item>
+        <item>Shellfish</item>
+        <item>Sesame</item>
+        <item>Blueberry</item>
+        <item>Pineapple</item>
+        <item>Apple</item>
+        <item>Orange</item>
+        <item>Banana</item>
+        <item>Kiwi</item>
+        <item>Peach</item>
+        <item>Melon</item>
+        <item>Strawberry</item>
+        <item>Mustard</item>
+        <item>Pear</item>
+        <item>Cherry</item>
+        <item>Plum</item>
+    </string-array>
+</resources>
