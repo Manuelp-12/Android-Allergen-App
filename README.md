@@ -29,5 +29,7 @@ The scan screen shows the contents of the user's camera. When a barcode is detec
     <img src="https://github.com/user-attachments/assets/e7da6697-68fc-4e4c-b84f-206b3e539175" width="270">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="https://github.com/user-attachments/assets/8c71b3b4-b38c-4f83-a167-8294e8e8896e" width="270">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/user-attachments/assets/a44e04d5-a47f-4442-9fae-851b8385862a" width="270">
   </p>
 </span>
