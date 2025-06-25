@@ -8,4 +8,4 @@ This app has the user select their allergens from a given list, then allows them
   <img src="https://github.com/user-attachments/assets/d74da80c-0e15-4dfd-9b26-11152e10a6d7" width="270">
   </p>
 </span>
-Users can scroll through the list of allergens to select their preferences, or search for it using the Search Bar at the top.
+Users can scroll through the list of allergens to select their preferences, or search for it using the Search Bar at the top. Their selection is highlighted in green once clicked.
