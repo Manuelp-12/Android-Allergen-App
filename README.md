@@ -30,3 +30,4 @@ The scan screen shows the contents of the user's camera. When a barcode is detec
     <img src="https://github.com/user-attachments/assets/a44e04d5-a47f-4442-9fae-851b8385862a" width="270">
   </p>
 </span>
+Once the product is scanned, the app takes the user to a screen which shows several of the product's attributes, including an image of the product, whether it is a risk to the user (if one or more of the allergens selected is in the product), the product's key allergens, and the product's entire ingredients list. If the product is a risk to the user, the text displays, "Risk: High" and the circle next to it is red. The key allergens in the product that match up with the user's selected allergens are highlighted in yellow as well. Otherwise, the the text displays, "Risk: Low" and the circle next to it is green.
