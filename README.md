@@ -15,12 +15,11 @@ Users can scroll through the list of allergens to select their preferences, or s
 <span>
   <p>
   <img src="https://github.com/user-attachments/assets/21de484e-44f0-4b92-987a-c03b7b45a6fc" width="270">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/e159c451-faa8-4eb3-adea-a3856886ab50" width="270">
   <img src="https://github.com/user-attachments/assets/d50bdd96-01b2-4e2d-9b87-007c9be34f2d" width="270">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </p>
 </span>
-The scan screen shows the contents of the user's camera. When a barcode is detected using ML Kit's barcode API, the barcode number is then checked if it is in the Open Food API database. If it is, then the "Scan Barcode" text at the top is replaced with a green text which reads, "Scanned".
+The scan screen shows the contents of the user's camera. When a barcode is detected using ML Kit's barcode API, the barcode number is then checked if it is in the Open Food API database. If it isn't then the user is notified with a message at the bottom of the screen saying, "Product not found". If it is, then the "Scan Barcode" text at the top is replaced with a green text which reads, "Scanned".
 <br>
 <br>
 
