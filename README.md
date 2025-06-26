@@ -20,8 +20,8 @@ Users can scroll through the list of allergens to select their preferences, or s
   </p>
 </span>
 The scan screen shows the contents of the user's camera. When a barcode is detected using <a href="https://developers.google.com/ml-kit/vision/barcode-scanning">ML Kit's barcode API</a>, the barcode number is then checked if it is in the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/">Open Food Facts API</a> database. If it isn't, then the user is notified with a message at the bottom of the screen saying, "Product not found". If it is, then the "Scan Barcode" text at the top is replaced with a green text which reads, "Scanned".
-<br>
-<br>
+
+# Product attributes
 
 <span>
   <p>
@@ -39,4 +39,4 @@ Once the product is scanned, the app takes the user to a screen which shows seve
     <img src="https://github.com/user-attachments/assets/c73e1efe-3c56-4e84-b33f-3863baa4ea04" width="270">
   </p>
 </span>
-The history screen shows the user's previously scanned products and their attributes such as the product image, name, and brand, as well as its risk to the user. It also includes an arrow on the right side which takes the user to the complete product attribute screen shown above.
+The history screen shows the user's previously scanned products and their attributes such as the product image, name, and brand, as well as its risk to the user. It also includes an arrow on the right side which takes the user to the complete product attribute screen shown above in the "Product Attributes" section.
