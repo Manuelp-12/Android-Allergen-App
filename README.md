@@ -24,7 +24,7 @@ The scan screen shows the contents of the user's camera. When a barcode is detec
 </span>
 
 # Detect screen
-The detect screen allows the user to take a picture of their food, and upload it to be analyzed. The machine learning model for detecting the user's foods is made with TensorFlow and was trained on the Food 101 dataset with a 73% accuracy. The code for training the model can be found <a href="https://github.com/Manuelp-12/food101training">here</a>.
+The detect screen allows the user to take a picture of their food, and upload it to be analyzed. The machine learning model for detecting the user's foods is made with TensorFlow and was trained on the <a href="https://www.tensorflow.org/datasets/catalog/food101>"Food 101 dataset</a> with a 73% accuracy. The code for training the model can be found <a href="https://github.com/Manuelp-12/food101training">here</a>.
 
 <span>
   <p>
