@@ -28,6 +28,7 @@ The scan screen shows the contents of the user's camera. When a barcode is detec
 <span>
   <p>
     <img width="270"src="https://github.com/user-attachments/assets/048f0c7e-1295-4d4a-9149-e64a84b535a2" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img width="270" src="https://github.com/user-attachments/assets/4754caa4-c292-4ea7-8c97-c49216f50ef0" />
 
   </p>
@@ -39,7 +40,7 @@ Once the product is scanned, the app takes the user to a screen which shows seve
 <span>
   <p>
     <img src="https://github.com/user-attachments/assets/e7da6697-68fc-4e4c-b84f-206b3e539175" width="270">
-    <img src="https://github.com/user-attachments/assets/8c71b3b4-b38c-4f83-a167-8294e8e8896e" width="270">
+    <img width="270"src="https://github.com/user-attachments/assets/810fbd5e-2e33-429f-b0de-880e482ad3ff" />
     <img src="https://github.com/user-attachments/assets/a44e04d5-a47f-4442-9fae-851b8385862a" width="270">
   </p>
 </span>
