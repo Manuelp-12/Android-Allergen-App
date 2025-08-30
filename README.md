@@ -24,6 +24,7 @@ The scan screen shows the contents of the user's camera. When a barcode is detec
 </span>
 
 # Detect screen
+The detect screen allows the user to take a picture of their food, and upload it to be analyzed. The machine learning model for detecting the user's foods is made with TensorFlow and was trained on the Food 101 dataset with a 73% accuracy.
 
 <span>
   <p>
@@ -35,7 +36,9 @@ The scan screen shows the contents of the user's camera. When a barcode is detec
 </span>
 
 # Product attributes
-Once the product is scanned, the app takes the user to a screen which shows several of the product's attributes, including an image of the product, whether it is a risk to the user (if one or more of the allergens selected is in the product), the product's key allergens, and the product's entire ingredients list. If the product is a risk to the user, the text displays, "Risk: High" and the circle next to it is red. The key allergens in the product that match up with the user's selected allergens are highlighted in yellow as well. Otherwise, the the text displays, "Risk: Low" and the circle next to it is green.
+If the product is scanned, the app takes the user to a screen which shows several of the product's attributes, including an image of the product, whether it is a risk to the user (if one or more of the allergens selected is in the product), the product's key allergens, and the product's entire ingredients list. If the product is a risk to the user, the text displays, "Risk: High" and the circle next to it is red. The key allergens in the product that match up with the user's selected allergens are highlighted in yellow as well. Otherwise, the the text displays, "Risk: Low" and the circle next to it is green.
+
+If the product is detected, the app shows the image that the user took with its predicted food underneath, with its confidence level that the food is correct. Each food's main and potential allergens are taken from research about the foods, including restaurant websites and cooking tutorials. The risk attribute also contains an additional category "Medium" with a yellow circle if the user matches any potential allergens but not any main allergens.
 
 <span>
   <p>
