@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 
 
 class SharedViewModel : ViewModel() {
-    val selectedItems = MutableLiveData<MutableSet<String>>(mutableSetOf(String()))
+    val selectedItems = MutableLiveData<MutableSet<String>>(mutableSetOf())
 
     fun toggleItem(foodName: String) {
-        val currentSet = selectedItems.value ?: mutableSetOf(String())
+        val currentSet = selectedItems.value ?: mutableSetOf()
         if (currentSet.contains(foodName)) {
             currentSet.remove(foodName)
         } else {

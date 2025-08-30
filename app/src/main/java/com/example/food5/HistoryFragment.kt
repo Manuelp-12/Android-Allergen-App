@@ -12,7 +12,7 @@ class HistoryFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var adapter: HistoryAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var historyList : ArrayList<ScannedItem>
+    private lateinit var historyList : ArrayList<ProductInfo>
 //    private var param1: String? = null
 //    private var param2: String? = null
 //

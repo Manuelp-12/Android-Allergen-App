@@ -131,7 +131,10 @@ class ScanFragment : Fragment() {
 
                             requireActivity().runOnUiThread {
                                 //barcodeText.text = "Name: $name\nBrand: $brand\nIngredients: $ingredients\nAllergens: $allergens"
-                                ScannedArray.ScannedItems.add(ScannedItem(name, brand, imageurl, allergens, ingredients))
+                                val scannedProduct = ScannedItem(name, brand, imageurl, allergens, ingredients)
+                                if (!ScannedArray.ScannedItems.contains(scannedProduct)) {
+                                    ScannedArray.ScannedItems.add(scannedProduct)
+                                }
                                 val intent = Intent(context, ScannedProductActivity::class.java)
                                 intent.putExtra("product",name)
                                 intent.putExtra("brand",brand)

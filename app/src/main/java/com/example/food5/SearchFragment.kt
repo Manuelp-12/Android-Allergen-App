@@ -89,19 +89,24 @@ class SearchFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
 
+        searchView.setOnClickListener {
+            searchView.isIconified = false
+            searchView.requestFocus()
+        }
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
+                filterList(newText?.lowercase())
+
                 return true
             }
 
         })
     }
-
 
     private fun foodInitialize() {
         foodArrayList = arrayListOf<Food>()
@@ -124,10 +129,7 @@ class SearchFragment : Fragment() {
                 }
             }
 
-            if (filteredList.isEmpty()) {
-                Toast.makeText(this.context, "No Data Found", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            if (!filteredList.isEmpty()) {
                 adapter.setFilteredList(filteredList)
             }
         }

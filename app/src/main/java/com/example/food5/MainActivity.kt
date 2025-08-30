@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(ScanFragment())
                     true
                 }
+                R.id.bottom_detect -> {
+                    replaceFragment(DetectFragment())
+                    true
+                }
                 R.id.bottom_history -> {
                     replaceFragment(HistoryFragment())
                     true

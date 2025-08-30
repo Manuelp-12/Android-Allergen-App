@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
+import java.util.Locale
 
 class ScannedProductActivity : AppCompatActivity() {
 
@@ -54,11 +55,18 @@ class ScannedProductActivity : AppCompatActivity() {
         // Split allergens by commas
         val allergenWords = allergensRaw.split(",", ignoreCase = true, limit = 0).map { it.trim() }
 
+        val lowercasedSelected = SharedAllergens.selectedItems.map { it.lowercase() }.toSet()
+
         for (word in allergenWords) {
-            if (SharedAllergens.selectedItems.any { it.equals(word, ignoreCase = true) }) {
+            val lowerWord = word.lowercase()
+
+            if (lowercasedSelected.any { lowerWord.contains(it) }) {
                 riskText.text = "Risk: High"
                 riskImg.setImageResource(R.drawable.red)
-                val startIndex = spannable.toString().indexOf(word, startIndex = startOffset, ignoreCase = true)
+
+                val startIndex = spannable.toString()
+                    .indexOf(word, startIndex = startOffset, ignoreCase = true)
+
                 if (startIndex != -1) {
                     spannable.setSpan(
                         android.text.style.BackgroundColorSpan(android.graphics.Color.YELLOW),
@@ -69,6 +77,7 @@ class ScannedProductActivity : AppCompatActivity() {
                 }
             }
         }
+
         allergenView.text = spannable
 
         Glide.with(this)
@@ -80,5 +89,27 @@ class ScannedProductActivity : AppCompatActivity() {
         productView.setText(product)
         brandView.setText(brand)
         ingredientView.setText(ingredients)
+    }
+    fun formatProduct(str: String?): String {
+        if (str == null) {
+            return ""
+        }
+        val sb = StringBuilder(
+            str.replaceFirstChar {
+                if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString()
+            }
+        )
+
+        var i = 0
+        while (i < sb.length) {
+            if (sb[i] == '_') {
+                sb.setCharAt(i, ' ') // replace _ with space
+                if (i + 1 < sb.length) {
+                    sb.setCharAt(i + 1, sb[i + 1].uppercaseChar()) // capitalize next char
+                }
+            }
+            i++
+        }
+        return sb.toString()
     }
 }

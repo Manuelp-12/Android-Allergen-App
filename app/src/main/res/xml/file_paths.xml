@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Save images to cache dir -->
+    <cache-path name="images" path="." />
+</paths>
