@@ -2,6 +2,7 @@ package com.example.food5
 
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -33,8 +34,6 @@ class DetectedProductActivity : AppCompatActivity() {
         product = formatProduct(product)
 
         product += "\n(${confidence}% confidence)"
-        var main = "Main allergens: " + intent.getStringExtra("mainAllergens")
-        var potential = "Potential allergens: " + intent.getStringExtra("potentialAllergens")
 
         val image: Uri? = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra("image", Uri::class.java)
@@ -49,25 +48,72 @@ class DetectedProductActivity : AppCompatActivity() {
         riskImg.setImageResource(R.drawable.green)
         riskText.text = "Risk: Low"
 
-        val potentialAllergenWords = (potential).split(",").map { it.trim() }
-        for (word in potentialAllergenWords) {
-            if (SharedAllergens.selectedItems.any { it.equals(word, ignoreCase = true) }) {
-                riskText.text = "Risk: Medium"
-                riskImg.setImageResource(R.drawable.yellow)
-            }
-        }
+        val mainRaw = intent.getStringExtra("mainAllergens") ?: ""
+        val potentialRaw = intent.getStringExtra("potentialAllergens") ?: ""
 
-        val mainAllergenWords = (main).split(",").map { it.trim() }
+        val mainPrefix = "Main allergens: "
+        val potentialPrefix = "Potential allergens: "
+
+// --- Main allergens spannable ---
+        val mainSpannable = SpannableString(mainPrefix + mainRaw)
+        val mainStartOffset = mainPrefix.length
+        val mainAllergenWords = mainRaw.split(",", ignoreCase = true, limit = 0).map { it.trim() }
+
+        val lowercasedSelected = SharedAllergens.selectedItems.map { it.lowercase() }.toSet()
+
         for (word in mainAllergenWords) {
-            if (SharedAllergens.selectedItems.any { it.equals(word, ignoreCase = true) }) {
+            val lowerWord = word.lowercase()
+
+            if (lowercasedSelected.any { lowerWord.contains(it) }) {
                 riskText.text = "Risk: High"
                 riskImg.setImageResource(R.drawable.red)
+
+                val startIndex = mainSpannable.toString()
+                    .indexOf(word, startIndex = mainStartOffset, ignoreCase = true)
+
+                if (startIndex != -1) {
+                    mainSpannable.setSpan(
+                        android.text.style.BackgroundColorSpan(android.graphics.Color.YELLOW),
+                        startIndex,
+                        startIndex + word.length,
+                        android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
             }
         }
+        mainAllergens.text = mainSpannable
+
+// --- Potential allergens spannable ---
+        val potentialSpannable = SpannableString(potentialPrefix + potentialRaw)
+        val potentialStartOffset = potentialPrefix.length
+        val potentialAllergenWords = potentialRaw.split(",", ignoreCase = true, limit = 0).map { it.trim() }
+
+        for (word in potentialAllergenWords) {
+            val lowerWord = word.lowercase()
+
+            if (lowercasedSelected.any { lowerWord.contains(it) }) {
+                // Only lower risk if not already set to high
+                if (riskText.text != "Risk: High") {
+                    riskText.text = "Risk: Medium"
+                    riskImg.setImageResource(R.drawable.yellow)
+                }
+
+                val startIndex = potentialSpannable.toString()
+                    .indexOf(word, startIndex = potentialStartOffset, ignoreCase = true)
+
+                if (startIndex != -1) {
+                    potentialSpannable.setSpan(
+                        android.text.style.BackgroundColorSpan(android.graphics.Color.YELLOW),
+                        startIndex,
+                        startIndex + word.length,
+                        android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
+            }
+        }
+        potentialAllergens.text = potentialSpannable
 
         productView.text = product
-        mainAllergens.text = main
-        potentialAllergens.text = potential
         img.setImageURI(image)
     }
 
