@@ -1,5 +1,5 @@
 # Android-Allergen-App
-This app has the user select their allergens from a given list, then allows them to scan any product barcode, and shows if that product is a potential risk if consumed.
+This app has the user select their allergens from a given list, then allows them to scan any product barcode or take a picture of their product, and shows if that product is a potential risk if consumed.
 
 # Search screen
 Users can scroll through the list of allergens to select their preferences, or search for it using the Search Bar at the top. Their selection is highlighted in green once clicked.
